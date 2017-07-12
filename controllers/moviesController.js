@@ -2,6 +2,9 @@ const connect = require('../connect').connect;
 
 module.exports = {
   searchTitles: (req, res) => {
+      connect("movies", {}, res);
+  },
+  searchTitles: (req, res) => {
       let title = decodeURIComponent(req.params.title);
       let query = {title: {'$regex': title, $options: 'i'}};
 

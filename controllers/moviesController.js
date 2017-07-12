@@ -1,16 +1,15 @@
 const connect = require('../connect').connect;
-const ignoreCase = (str) => new RegExp(["^", str, "$"].join(""), "i");
 
 module.exports = {
   searchTitles: (req, res) => {
       let title = decodeURIComponent(req.params.title);
-      let query = {};
+      let query = {title: {'$regex': title, $options: 'i'}};
 
       connect("movies", query, res);
   },
   searchByTitle: (req, res) => {
       let title = decodeURIComponent(req.params.title);
-      let query = {title: ignoreCase(title)};
+      let query = {title: {'$regex': title, $options: 'i'}};
 
       connect("movieDetails", query, res);
   },
@@ -20,17 +19,17 @@ module.exports = {
       connect("movieDetails", query, res);
   },
   searchByActor: (req, res) => {
-      let query = {actors: ignoreCase(req.params.actor)};
+      let query = {actors: {'$regex': req.params.actor, $options: 'i'}};
 
       connect("movieDetails", query, res);
   },
   searchByGenre: (req, res) => {
-      let query = {genres: ignoreCase(req.params.genre)};
+      let query = {genres: {'$regex': req.params.genre, $options: 'i'}};
 
       connect("movieDetails", query, res);
   },
   searchByDirector: (req, res) => {
-      let query = {director: ignoreCase(req.params.director)};
+      let query = {director: {'$regex': req.params.director, $options: 'i'}};
 
       connect("movieDetails", query, res);
   }

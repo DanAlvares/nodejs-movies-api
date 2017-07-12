@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-movies-api",
+  "version": "1.0.0",
+  "description": "A public movies search api",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dan Alvares",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "mongodb": "^2.2.30"
+  }
+}

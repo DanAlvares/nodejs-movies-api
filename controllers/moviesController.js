@@ -1,7 +1,7 @@
 const connect = require('../connect').connect;
 
 module.exports = {
-  searchTitles: (req, res) => {
+  searchAll: (req, res) => {
       connect("movies", {}, res);
   },
   searchTitles: (req, res) => {

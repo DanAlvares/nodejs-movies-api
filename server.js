@@ -5,7 +5,7 @@ const router = express.Router();
 const PORT = process.env.PORT || 3030;
 
 // Routes
-router.route('/movies/list/:string').get(moviesCtrl.searchTitles);
+router.route('/movies/list/:title').get(moviesCtrl.searchTitles);
 router.route('/movies/title/:title').get(moviesCtrl.searchByTitle);
 router.route('/movies/year/:year').get(moviesCtrl.searchByYear);
 router.route('/movies/actor/:actor').get(moviesCtrl.searchByActor);

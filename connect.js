@@ -12,7 +12,10 @@ exports.connect = (collection, query, res) => {
               .toArray(function(err, result) {
                 if (err) throw err;
 
-                res.send(result);
+                res.send({
+                  count: result.length,
+                  response: result
+                });
 
                 db.close();
               });

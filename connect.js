@@ -1,9 +1,8 @@
 const mongoClient = require('mongodb').MongoClient;
-const config = require('./config');
 
 exports.connect = (collection, query, res) => {
       // Connect to the db
-      mongoClient.connect(process.env.connectionString,
+      mongoClient.connect((process.env.connectionString),
         (err, db) => {
             if(err) throw err;
 

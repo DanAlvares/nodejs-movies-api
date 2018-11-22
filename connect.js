@@ -3,7 +3,7 @@ const config = require('./config');
 
 exports.connect = (collection, query, res) => {
       // Connect to the db
-      mongoClient.connect(config.connectionString,
+      mongoClient.connect(process.env.connectionString,
         (err, db) => {
             if(err) throw err;
 

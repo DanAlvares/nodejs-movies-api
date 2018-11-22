@@ -2,10 +2,11 @@ const mongoClient = require('mongodb').MongoClient;
 
 exports.connect = (collection, query, res) => {
       // Connect to the db
-      mongoClient.connect((process.env.connectionString),
-        (err, db) => {
+      
+      mongoClient.connect(process.env.connectionString,
+        (err, client) => {
             if(err) throw err;
-
+            const db = client.db('movies');
             db.collection(collection)
               .find(query)
               .toArray(function(err, result) {
@@ -16,7 +17,7 @@ exports.connect = (collection, query, res) => {
                   response: result
                 });
 
-                db.close();
+                client.close();
               });
       });
 }

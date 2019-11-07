@@ -2,8 +2,9 @@ const connect = require('../connect').connect;
 const ObjectId = require('mongodb').ObjectID;
 
 module.exports = {
-  searchAll: (req, res) => {
-      connect("movies", {}, res);
+    searchAll: (req, res) => {
+        const projection = { title: 1, year: 1, released: 1, director: 1, poster:1, genres: 1, 'imdb.rating': 1 }
+      connect("movieDetails", {}, res, projection);
   },
   searchDetails: (req, res) => {
       connect("movieDetails", {}, res);

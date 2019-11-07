@@ -4,7 +4,7 @@ A very simple REST API with several endpoints that provides movie details for ov
 ## Endpoints
 
 #### GET /movies/
-  Returns all 3365 movies from the database  
+  Returns all 2295 movies from the database  
   *Example:* ``` https://nodejs-movies.herokuapp.com/api/movies/ ```
 
 #### GET /movies/{MOVIE_ID}  

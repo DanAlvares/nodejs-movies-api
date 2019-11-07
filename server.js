@@ -11,7 +11,6 @@ require('dotenv').config({ path: '.env' });
 router.route('/movies/').get(moviesCtrl.searchAll);
 router.route('/movies/details').get(moviesCtrl.searchDetails);
 router.route('/movies/:id').get(moviesCtrl.searchById);
-// router.route('/movies/:title').get(moviesCtrl.searchTitles);
 router.route('/movies/title/:title').get(moviesCtrl.searchByTitle);
 router.route('/movies/year/:year').get(moviesCtrl.searchByYear);
 router.route('/movies/actor/:actor').get(moviesCtrl.searchByActor);

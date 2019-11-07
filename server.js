@@ -4,8 +4,16 @@ const app = express();
 const router = express.Router();
 const PORT = process.env.PORT || 3030;
 
-
 require('dotenv').config({ path: '.env' });
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Authorization, Content-Type, Accept");
+    res.header('Access-Control-Allow-Credentials', true);
+
+    next();
+});
 
 // Routes
 router.route('/movies/').get(moviesCtrl.searchAll);

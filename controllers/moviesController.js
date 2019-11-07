@@ -1,8 +1,18 @@
 const connect = require('../connect').connect;
+const ObjectId = require('mongodb').ObjectID;
 
 module.exports = {
   searchAll: (req, res) => {
       connect("movies", {}, res);
+  },
+  searchDetails: (req, res) => {
+      connect("movieDetails", {}, res);
+  },
+  searchById: (req, res) => {
+      let id = decodeURIComponent(req.params.id);
+      let query = {_id: ObjectId(id) };
+
+      connect("movieDetails", query, res);
   },
   searchTitles: (req, res) => {
       let title = decodeURIComponent(req.params.title);
